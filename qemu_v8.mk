@@ -1,6 +1,7 @@
 SPMC_AT_EL=2
 MEMTAG=y
 PAUTH=y
+ASYNC_NOTIF=y
 
 ################################################################################
 # Following variables defines how the NS_USER (Non Secure User - Client
@@ -394,6 +395,11 @@ OPTEE_OS_COMMON_FLAGS += CFG_CORE_PAUTH=y
 endif
 ifeq ($(MEMTAG),y)
 OPTEE_OS_COMMON_FLAGS += CFG_MEMTAG=y
+endif
+
+ifeq ($(ASYNC_NOTIF),y)
+OPTEE_OS_COMMON_FLAGS += CFG_CORE_ASYNC_NOTIF=y
+OPTEE_OS_COMMON_FLAGS += CFG_CORE_ASYNC_NOTIF_GIC_INTID=219
 endif
 
 OPTEE_OS_COMMON_FLAGS += $(OPTEE_OS_COMMON_FLAGS_SPMC_AT_EL_$(SPMC_AT_EL))

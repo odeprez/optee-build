@@ -1,3 +1,7 @@
+SPMC_AT_EL=2
+MEMTAG=y
+PAUTH=y
+
 ################################################################################
 # Following variables defines how the NS_USER (Non Secure User - Client
 # Application), NS_KERNEL (Non Secure Kernel), S_KERNEL (Secure Kernel) and

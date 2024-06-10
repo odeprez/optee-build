@@ -13,7 +13,7 @@
 
 VER=${1}
 DEST=${2:-./clang-${VER}}
-X86_64=clang+llvm-${VER}-x86_64-linux-gnu-ubuntu-16.04
+X86_64=clang+llvm-${VER}-x86_64-linux-gnu-ubuntu-18.04
 AARCH64=clang+llvm-${VER}-aarch64-linux-gnu
 ARMV7A=clang+llvm-${VER}-armv7a-linux-gnueabihf
 
@@ -44,6 +44,6 @@ pids="$pids $!"
 wait $pids || exit 1
 
 mv ${X86_64} ${TMPDEST} || exit 1
-cp ${AARCH64}/lib/clang/${VER}/lib/linux/* ${TMPDEST}/lib/clang/${VER}/lib/linux || exit 1
-cp ${ARMV7A}/lib/clang/${VER}/lib/linux/* ${TMPDEST}/lib/clang/${VER}/lib/linux || exit 1
+#cp ${AARCH64}/lib/clang/${VER}/lib/x86_64-unknown-linux-gnu/* ${TMPDEST}/lib/clang/${VER}/lib/x86_64-unknown-linux-gnu || exit 1
+#cp ${ARMV7A}/lib/clang/${VER}/lib/x86_64-unknown-linux-gnu/* ${TMPDEST}/lib/clang/${VER}/lib/x86_64-unknown-linux-gnu || exit 1
 mv ${TMPDEST} ${DEST}

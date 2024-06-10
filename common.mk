@@ -49,7 +49,10 @@ ifneq ($(COMPILER),clang)
 WITH_CXX_TESTS			?= y
 endif
 
-CCACHE ?= $(shell which ccache) # Don't remove this comment (space is needed)
+CCACHE_present := $(shell which ccache)
+ifneq ($(CCACHE_present),)
+CCACHE ?= $(CCACHE_present) # Don't remove this comment (space is needed)
+endif
 
 # QEMU shared folders settings
 #

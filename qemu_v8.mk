@@ -400,7 +400,7 @@ optee-os-clean: optee-os-clean-common
 hafnium: $(HAFNIUM_BIN)
 
 $(HAFNIUM_BIN): .hafnium_checkout | $(OUT_PATH)
-	$(MAKE) -C $(HAFNIUM_PATH) $(HAFNIUM_FLAGS) all
+	$(MAKE) -C $(HAFNIUM_PATH) $(HAFNIUM_FLAGS) PLATFORM=secure_qemu_aarch64
 
 
 ################################################################################

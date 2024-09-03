@@ -392,8 +392,6 @@ optee-os-clean: optee-os-clean-common
 # Hafnium
 ################################################################################
 
-HAFNIUM_EXPORTS = PATH=$(HAFNIUM_PATH)/prebuilts/linux-x64/clang/bin:$(HAFNIUM_PATH)/prebuilts/linux-x64/dtc:$(PATH)
-
 .hafnium_checkout:
 	git -C $(HAFNIUM_PATH) submodule update --init
 	touch $@
@@ -401,7 +399,7 @@ HAFNIUM_EXPORTS = PATH=$(HAFNIUM_PATH)/prebuilts/linux-x64/clang/bin:$(HAFNIUM_P
 hafnium: $(HAFNIUM_BIN)
 
 $(HAFNIUM_BIN): .hafnium_checkout | $(OUT_PATH)
-	$(HAFNIUM_EXPORTS) $(MAKE) -C $(HAFNIUM_PATH) $(HAFNIUM_FLAGS) all
+	$(MAKE) -C $(HAFNIUM_PATH) $(HAFNIUM_FLAGS) all
 
 
 ################################################################################
